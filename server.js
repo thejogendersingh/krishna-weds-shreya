@@ -100,7 +100,7 @@ function handler(req, res) {
       'Content-Type': contentType,
       'Accept-Ranges': 'bytes',
       'Access-Control-Allow-Origin': '*',
-      'Cache-Control': ext === '.html' ? 'public, max-age=0, must-revalidate' : 'public, max-age=31536000, immutable'
+      'Cache-Control': 'no-cache, no-store, must-revalidate'
     });
 
     fs.createReadStream(targetFile).pipe(res);
@@ -111,9 +111,9 @@ function handler(req, res) {
 }
 
 // Support running locally via `node server.js`
-if (require.main === module || !process.env.VERCEL) {
+if (require.main === module) {
   const PORT = process.env.PORT || 3000;
-  const HOST = '127.0.0.1';
+  const HOST = process.env.HOST || '0.0.0.0';
   http.createServer(handler).listen(PORT, HOST, () => {
     console.log(`Server running at http://${HOST}:${PORT}/`);
   });

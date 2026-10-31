@@ -1,7 +1,7 @@
 {
-  "name": "ananya-weds-aarav",
+  "name": "krishna-weds-shreya",
   "version": "1.0.0",
-  "description": "Ananya & Aarav Wedding Invitation",
+  "description": "Krishna & Shreya Wedding Invitation",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
